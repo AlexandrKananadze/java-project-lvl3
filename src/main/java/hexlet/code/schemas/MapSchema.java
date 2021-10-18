@@ -10,7 +10,7 @@ public class MapSchema extends BaseSchema {
 
     private final List<BaseSchema> listOfSchemas = new ArrayList<>();
     private final List<String> listOfKeys = new ArrayList<>();
-    Predicate<Object> isMap = j -> j instanceof Map;
+    private Predicate<Object> isMap = j -> j instanceof Map;
 
 
     public final void required() {
@@ -20,8 +20,8 @@ public class MapSchema extends BaseSchema {
 
     public final void sizeof(int size) {
         super.addPredicate(isMap);
-       Predicate<Object> sizeofMap = j-> ((Map) j).size() == size;
-       super.addPredicate(sizeofMap);
+        Predicate<Object> sizeofMap = j -> ((Map) j).size() == size;
+        super.addPredicate(sizeofMap);
         super.setRequired();
     }
 
@@ -43,6 +43,7 @@ public class MapSchema extends BaseSchema {
         }
         return true;
     }
+
     public final void shape(Map<String, BaseSchema> map) {
         for (Map.Entry<String, BaseSchema> temp : map.entrySet()) {
             listOfKeys.add(temp.getKey());

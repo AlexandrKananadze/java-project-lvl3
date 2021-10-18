@@ -7,16 +7,16 @@ import hexlet.code.schemas.StringSchema;
 
 public class Validator {
 
-  public static StringSchema string() {
-      return new StringSchema();
-  }
+    public static StringSchema string() {
+        return new StringSchema();
+    }
 
-  public NumberSchema number() {
-      return new NumberSchema();
-  }
+    public NumberSchema number() {
+        return new NumberSchema();
+    }
 
- public static MapSchema map() {
-     return new MapSchema();
- }
+    public static MapSchema map() {
+        return new MapSchema();
+    }
 }
 

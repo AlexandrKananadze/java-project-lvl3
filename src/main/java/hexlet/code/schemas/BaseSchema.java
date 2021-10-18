@@ -7,11 +7,10 @@ import java.util.function.Predicate;
 public class BaseSchema {
 
     private final List<Predicate<Object>> predicateList = new ArrayList<>();
-    boolean required = false;
-
+    private boolean required = false;
 
     public boolean isValid(Object o) {
-           for (Predicate<Object> p : predicateList) {
+        for (Predicate<Object> p : predicateList) {
             if (!p.test(o)) {
                 return false;
             }
@@ -26,5 +25,4 @@ public class BaseSchema {
     public void setRequired() {
         required = true;
     }
-
 }
