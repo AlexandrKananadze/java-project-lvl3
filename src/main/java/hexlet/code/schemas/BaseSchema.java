@@ -6,9 +6,13 @@ import java.util.function.Predicate;
 
 public class BaseSchema {
 
-    private final List<Predicate<Object>> predicateList = new ArrayList<>();
+    private List<Predicate<Object>> predicateList = new ArrayList<>();
     private boolean required = false;
 
+    /**
+     * @param o
+     * @return boolean depends on predicates condition
+     */
     public boolean isValid(Object o) {
         for (Predicate<Object> p : predicateList) {
             if (!p.test(o)) {
@@ -18,10 +22,18 @@ public class BaseSchema {
         return true;
     }
 
+    /**
+     * adding predicate to predicate list.
+     *
+     * @param predicate
+     */
     public void addPredicate(Predicate<Object> predicate) {
         predicateList.add(predicate);
     }
 
+    /**
+     * setting boolean 'required' as true.
+     */
     public void setRequired() {
         required = true;
     }
