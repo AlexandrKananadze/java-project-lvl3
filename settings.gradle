@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'java-project-lvl3'
-include('app')
+
