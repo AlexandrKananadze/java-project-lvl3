@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.schemas.BaseSchema;
 import hexlet.code.schemas.MapSchema;
 import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,21 +75,21 @@ public class MapSchemaTest {
         assertFalse(mapShapeSchema.isValid(human));
     }
 
-   @Test
-   void mapShapeNegativeDigitFalseTest() {
-       final int ageForLint = -5;
-       Map<String, Object> human = new HashMap<>();
-       human.put("name", "Valya");
-       human.put("age", ageForLint);
-       assertFalse(mapShapeSchema.isValid(human));
-   }
+    @Test
+    void mapShapeNegativeDigitFalseTest() {
+        final int ageForLint = -5;
+        Map<String, Object> human = new HashMap<>();
+        human.put("name", "Valya");
+        human.put("age", ageForLint);
+        assertFalse(mapShapeSchema.isValid(human));
+    }
 
- private MapSchema mapSchemaInit() {
-     MapSchema shapeMapSchema = validator.map();
-     Map<String, BaseSchema> schemas = new HashMap<>();
-     schemas.put("name", validator.string().required());
-     schemas.put("age", validator.number().positive());
-     shapeMapSchema.shape(schemas);
-     return shapeMapSchema;
- }
+    private MapSchema mapSchemaInit() {
+        MapSchema shapeMapSchema = validator.map();
+        Map<String, BaseSchema> schemas = new HashMap<>();
+        schemas.put("name", validator.string().required());
+        schemas.put("age", validator.number().positive());
+        shapeMapSchema.shape(schemas);
+        return shapeMapSchema;
+    }
 }

@@ -1,8 +1,9 @@
 package hexlet.code;
-        import hexlet.code.schemas.NumberSchema;
-        import org.junit.jupiter.api.Test;
-        import static org.junit.jupiter.api.Assertions.assertFalse;
-        import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import hexlet.code.schemas.NumberSchema;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NumberSchemaTest {
     private final int positiveDigitForRange = 5;
@@ -67,6 +68,4 @@ public class NumberSchemaTest {
         numberSchema.required().positive();
         assertFalse(numberSchema.isValid(""));
     }
-
-
 }
