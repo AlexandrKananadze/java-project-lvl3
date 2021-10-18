@@ -14,6 +14,9 @@ public class BaseSchema {
      * @return boolean depends on predicates condition
      */
     public boolean isValid(Object o) {
+        if (!required && o == null) {
+            return true;
+        }
         for (Predicate<Object> p : predicateList) {
             if (!p.test(o)) {
                 return false;

@@ -60,6 +60,14 @@ public class MapSchemaTest {
     }
 
     @Test
+    void mapNullTest() {
+        Map<String, Object> human = new HashMap<>();
+        human.put("name", "Maya");
+        human.put("age", null);
+        assertTrue(mapShapeSchema.isValid(human));
+    }
+
+    @Test
     void mapShapeFalseTest() {
         Map<String, Object> human = new HashMap<>();
         human.put("name", "");
