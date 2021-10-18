@@ -10,7 +10,7 @@ public class MapSchema extends BaseSchema {
 
     private final List<BaseSchema> listOfSchemas = new ArrayList<>();
     private final List<String> listOfKeys = new ArrayList<>();
-    private Predicate<Object> isMap = j -> j instanceof Map;
+    private final Predicate<Object> isMap = j -> j instanceof Map;
 
 
     public final void required() {

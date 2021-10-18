@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.function.Predicate;
 
 public class StringSchema extends BaseSchema {
-    private Predicate<Object> isString = j -> j instanceof String;
+    private final Predicate<Object> isString = j -> j instanceof String;
 
     public final StringSchema contains(String str) {
         super.addPredicate(isString);

@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 public class BaseSchema {
 
-    private List<Predicate<Object>> predicateList = new ArrayList<>();
+    private final List<Predicate<Object>> predicateList = new ArrayList<>();
     private boolean required = false;
 
     /**

@@ -3,8 +3,8 @@ package hexlet.code.schemas;
 import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
-    private Predicate<Object> isInteger = j -> j instanceof Integer;
-    private Predicate<Object> positiveInt = j -> (Integer) j > 0;
+    private final Predicate<Object> isInteger = j -> j instanceof Integer;
+    private final Predicate<Object> positiveInt = j -> (Integer) j > 0;
 
     public final NumberSchema positive() {
         super.addPredicate(isInteger);
