@@ -4,23 +4,20 @@ import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
     private final Predicate<Object> isInteger = j -> j instanceof Integer;
-    private final Predicate<Object> positiveInt = j -> (Integer) j > 0;
 
     public final NumberSchema positive() {
-        super.addPredicate(isInteger);
-        super.addPredicate(positiveInt);
+        super.addPredicate(x -> x == null || x instanceof Integer && (Integer) x > 0);
         return this;
     }
 
-    public final void range(int beginRange, int endRange) {
-        super.addPredicate(isInteger);
-        Predicate<Object> rangeInt = j -> (Integer) j >= beginRange && (Integer) j <= endRange;
-        super.addPredicate(rangeInt);
+    public final NumberSchema range(int beginRange, int endRange) {
+        super.addPredicate(x -> x instanceof Integer && (Integer) x >= beginRange
+                && (Integer) x <= endRange);
+        return this;
     }
 
     public final NumberSchema required() {
         super.addPredicate(isInteger);
-        super.setRequired();
         return this;
     }
 }
